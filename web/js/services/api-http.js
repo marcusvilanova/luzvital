@@ -48,6 +48,7 @@ export const apiHttp = {
   },
   relatorios: {
     impacto: () => java("/relatorios/impacto"),
+    painel: () => java("/relatorios/painel"),
   },
   pontos: {
     listar: (pagina = 0, tamanho = 20) => java(`/pontos-energia?page=${pagina}&size=${tamanho}`),

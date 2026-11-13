@@ -3,6 +3,7 @@
 import { CONFIG } from "../config.js";
 import { novoId } from "../lib/dom.js";
 import { calcularImpacto } from "../lib/impacto.js";
+import { aberturasPorHora, atividadeRecente, coberturaPorBairro } from "../lib/painel.js";
 import { planoPadrao } from "../lib/plano.js";
 import {
   ACOES_ATENDIMENTO, aparelhoCritico, minutosRestantes, ordenarFila, pontosProximos,
@@ -426,6 +427,17 @@ export const apiMock = {
       await usuarioAtual("GESTOR");
       const base = await db();
       return calcularImpacto(base.ocorrencias.map((o) => detalheOcorrencia(base, o)), base.pontos);
+    },
+    async painel() {
+      await latencia();
+      await usuarioAtual("GESTOR");
+      const base = await db();
+      const detalhes = base.ocorrencias.map((o) => detalheOcorrencia(base, o));
+      return {
+        atividade: atividadeRecente(detalhes, 7),
+        aberturas24h: aberturasPorHora(detalhes),
+        cobertura: coberturaPorBairro(detalhes, base.pontos),
+      };
     },
   },
 

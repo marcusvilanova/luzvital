@@ -2,10 +2,9 @@
 // Atualiza sozinha: na hora quando outra janela muda os dados (demo), e a cada 30 s com backend real.
 import { icone } from "../../components/icones.js";
 import { criarMapa } from "../../components/mapa.js";
-import { abrirModal } from "../../components/modal.js";
+import { botoesSimulacao, ligarSimulacao } from "../../components/simulacao.js";
 import { toast } from "../../components/toast.js";
 import { aviso, cabecalho, esqueleto, tagMinutos, vazio } from "../../components/ui.js";
-import { CONFIG } from "../../config.js";
 import { $, html, mount } from "../../lib/dom.js";
 import { duracao, hora } from "../../lib/formato.js";
 import { MINUTOS_ALERTA, minutosRestantes, ordenarFila, TIPOS_APARELHO } from "../../lib/regras.js";
@@ -45,30 +44,7 @@ function tabela(itens, novos) {
 }
 
 function acoesCabecalho() {
-  const demo = CONFIG.MODO === "mock"
-    ? html`<button class="btn btn-danger btn-sm" type="button" data-simular>Simular apagão ${icone("raio")}</button>
-      <button class="btn btn-ghost btn-sm" type="button" data-limpar>Limpar simulação</button>`
-    : "";
-  return html`${demo}<button class="btn btn-tertiary btn-sm" type="button" data-atualizar>Atualizar ${icone("atualizar")}</button>`;
-}
-
-async function simular(recarregar) {
-  const { simularApagao } = await import("../../services/simulador.js");
-  const ok = await abrirModal({
-    titulo: "Simular apagão em massa?",
-    confirmar: "Simular", perigo: true,
-    corpo: html`<p>Cria 30 ocorrências abertas e 40 encerradas em bairros da Zona Sul, com pacientes fictícios marcados como "simulado".
-      Serve para demonstrar a fila, o mapa e o painel de impacto sob carga.</p>`,
-    aoConfirmar: () => simularApagao({ abertas: 30, historico: 40 }),
-  });
-  if (ok) { toast("Apagão simulado: 30 casas sem luz.", "success"); recarregar(); }
-}
-
-async function limpar(recarregar) {
-  const { limparSimulacao } = await import("../../services/simulador.js");
-  await limparSimulacao();
-  toast("Simulação removida.");
-  recarregar();
+  return html`${botoesSimulacao()}<button class="btn btn-tertiary btn-sm" type="button" data-atualizar>Atualizar ${icone("atualizar")}</button>`;
 }
 
 export default {
@@ -121,8 +97,7 @@ export default {
     }
 
     $("[data-atualizar]", main).addEventListener("click", carregar);
-    $("[data-simular]", main)?.addEventListener("click", () => simular(carregar));
-    $("[data-limpar]", main)?.addEventListener("click", () => limpar(carregar));
+    ligarSimulacao(main, carregar);
     await carregar();
     const id = setInterval(carregar, ATUALIZAR_MS);
     aoDeixar(() => clearInterval(id));

@@ -5,11 +5,13 @@ import { logo } from "./logo.js";
 
 const NAV = {
   CUIDADOR: [
+    { href: "#/inicio", rotulo: "Início", icone: "casa", grupo: "/inicio", exato: true },
     { href: "#/pacientes", rotulo: "Meus pacientes", icone: "pessoas", grupo: "/pacientes" },
     { href: "#/pontos", rotulo: "Pontos de energia", icone: "local", grupo: "/pontos" },
     { href: "#/sobre", rotulo: "Sobre", icone: "sobre", grupo: "/sobre" },
   ],
   GESTOR: [
+    { href: "#/gestor", rotulo: "Início", icone: "casa", grupo: "/gestor", exato: true },
     { href: "#/gestor/fila", rotulo: "Fila", icone: "lista", grupo: "/gestor/fila" },
     { href: "#/gestor/impacto", rotulo: "Impacto", icone: "grafico", grupo: "/gestor/impacto" },
     { href: "#/gestor/pontos", rotulo: "Pontos de energia", icone: "local", grupo: "/gestor/pontos" },
@@ -20,13 +22,14 @@ const NAV = {
 const ITEM_OCORRENCIA = { "/ocorrencias": "/pacientes", "/gestor/ocorrencias": "/gestor/fila" };
 
 function ativo(item, caminho) {
+  if (item.exato) return caminho === item.grupo;
   const grupo = Object.entries(ITEM_OCORRENCIA).find(([prefixo]) => caminho.startsWith(prefixo))?.[1];
   return caminho.startsWith(item.grupo) || grupo === item.grupo;
 }
 
 export function renderizarShell(raiz, usuario, caminho, { aoSair, aoTrocarTema, aoTrocarLetra }) {
   const itens = NAV[usuario.papel] ?? [];
-  const inicio = usuario.papel === "GESTOR" ? "#/gestor/fila" : "#/pacientes";
+  const inicio = usuario.papel === "GESTOR" ? "#/gestor" : "#/inicio";
   mount(raiz, html`
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header class="shell-header">

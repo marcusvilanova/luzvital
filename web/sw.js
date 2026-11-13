@@ -1,13 +1,14 @@
 // Service worker do Luz Vital: deixa o app instalável e usável sem sinal.
 // Arquivos do app: rede primeiro (sempre a versão nova quando há internet), cache quando cai o sinal.
 // Fontes e biblioteca do mapa: cache primeiro. Chamadas às APIs nunca são guardadas aqui.
-const VERSAO = "luz-vital-bc3955a00e";
+const VERSAO = "luz-vital-c3b9c4dc9b";
 const ARQUIVOS = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
   "./css/base.css",
   "./css/components.css",
+  "./css/dashboard.css",
   "./css/layout.css",
   "./css/tokens.css",
   "./icones/icone-192.png",
@@ -18,6 +19,8 @@ const ARQUIVOS = [
   "./js/app.js",
   "./js/components/acoes-ocorrencia.js",
   "./js/components/alerta.js",
+  "./js/components/atalho.js",
+  "./js/components/estou-sem-luz.js",
   "./js/components/graficos.js",
   "./js/components/icones.js",
   "./js/components/logo.js",
@@ -25,6 +28,7 @@ const ARQUIVOS = [
   "./js/components/modal.js",
   "./js/components/ocorrencia.js",
   "./js/components/shell.js",
+  "./js/components/simulacao.js",
   "./js/components/toast.js",
   "./js/components/ui.js",
   "./js/config.js",
@@ -32,13 +36,16 @@ const ARQUIVOS = [
   "./js/lib/dom.js",
   "./js/lib/formato.js",
   "./js/lib/impacto.js",
+  "./js/lib/painel.js",
   "./js/lib/plano.js",
+  "./js/lib/prontidao.js",
   "./js/lib/regras.js",
   "./js/router.js",
   "./js/screens/acesso/cadastro.js",
   "./js/screens/acesso/layout.js",
   "./js/screens/acesso/login.js",
   "./js/screens/cuidador/aparelho-form.js",
+  "./js/screens/cuidador/inicio.js",
   "./js/screens/cuidador/ocorrencia.js",
   "./js/screens/cuidador/paciente-form.js",
   "./js/screens/cuidador/paciente.js",
@@ -47,6 +54,7 @@ const ARQUIVOS = [
   "./js/screens/cuidador/pontos.js",
   "./js/screens/gestor/fila.js",
   "./js/screens/gestor/impacto.js",
+  "./js/screens/gestor/inicio.js",
   "./js/screens/gestor/ocorrencia.js",
   "./js/screens/gestor/ponto-form.js",
   "./js/screens/gestor/pontos.js",

@@ -42,6 +42,7 @@ Os dados ficam no `localStorage` do navegador. **Sobre > Restaurar dados de demo
 | Rota | Papel | O que faz |
 |---|---|---|
 | `#/login`, `#/cadastro` | público | Entrar; criar conta de cuidador com aceite do termo (LGPD) |
+| `#/inicio` | cuidador | **Painel inicial**: faixa de estado (prontidão ou ocorrência aberta com contagem ao vivo), atalhos, cartão de prontidão por paciente com checklist acionável e "Estou sem luz", passos de emergência, telefones e direitos |
 | `#/pacientes` | cuidador | Lista paginada de pacientes com estado (ocorrência aberta, faltam aparelhos) |
 | `#/pacientes/novo`, `/:id/editar` | cuidador | Cadastro com dados mínimos |
 | `#/pacientes/:id` | cuidador | Botão **Estou sem luz**, aparelhos, histórico, atalhos |
@@ -50,6 +51,7 @@ Os dados ficam no `localStorage` do navegador. **Sobre > Restaurar dados de demo
 | `#/pacientes/:id/plano` | cuidador | Plano de contingência; guardado no aparelho e mostrado sem internet |
 | `#/ocorrencias/:id` | cuidador | Contagem regressiva, atualizar bateria, encerrar, pontos próximos, acompanhamento |
 | `#/pontos` | cuidador | Pontos de energia até 5 km de cada paciente |
+| `#/gestor` | gestor | **Painel inicial**: estado da operação, atalhos com números vivos, mais urgentes, atendidas a tempo, pedidos por hora (24 h), atividade recente, cobertura por bairro e perfil dos aparelhos |
 | `#/gestor/fila` | gestor | Indicadores, fila por bateria restante, mapa e simulador de apagão |
 | `#/gestor/impacto` | gestor | Painel de impacto com gráficos |
 | `#/gestor/ocorrencias/:id` | gestor | Registrar atendimento, acionar ponto, atualizar bateria, encerrar |
@@ -57,6 +59,9 @@ Os dados ficam no `localStorage` do navegador. **Sobre > Restaurar dados de demo
 | `#/sobre` | todos | Integrantes, versão/commit, aviso legal |
 
 ## Recursos
+
+- **Painéis iniciais (dashboards):** faixa escura no padrão Carbon com o estado do momento e grade bento de 12 colunas,
+  ordenada por prioridade (o que pede ação vem antes de atalhos e gráficos). Atualizam sozinhos quando chega um pedido.
 
 - **Simulador de apagão em massa** (modo demonstração): cria ocorrências abertas e histórico em 12 bairros da Zona Sul,
   com pacientes marcados como "simulado". *Limpar simulação* remove tudo o que foi criado.
@@ -123,5 +128,5 @@ tests/      regras.test.js (node --test)
 ## Testes
 
 ```bash
-npm test     # 26 testes: prioridade, minutos restantes, proximidade, validações, escape de HTML, indicadores de impacto
+npm test     # 36 testes: prioridade, minutos restantes, proximidade, validações, escape de HTML, indicadores de impacto
 ```

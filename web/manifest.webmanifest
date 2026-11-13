@@ -3,7 +3,7 @@
   "short_name": "Luz Vital",
   "description": "Cadastro de quem depende de aparelhos elétricos para viver e socorro ordenado pela bateria restante no apagão.",
   "lang": "pt-BR",
-  "start_url": "./#/pacientes",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#161616",

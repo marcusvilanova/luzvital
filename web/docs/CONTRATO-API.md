@@ -32,6 +32,7 @@ O front também aceita `message`, `detail`/`title` (ProblemDetails do .NET) e `e
 | POST | `/equipamentos/leitura-etiqueta` | autenticado | multipart `foto` → Leitura. Repassa ao serviço de IA (`luz-vital-ia`) |
 | GET | `/ocorrencias/fila` | GESTOR | Ocorrência[] abertas, ordenadas (menor bateria primeiro) |
 | GET | `/relatorios/impacto` | GESTOR | `{total, abertas, encerradas, atendidas, tempoMedioAtendimentoMin, percentualATempo, distribuicaoEspera[], porBairro[{rotulo,valor,abertas}], porTipoAparelho[], pontosPorBairro[]}`. Cálculo de referência: `js/lib/impacto.js` |
+| GET | `/relatorios/painel` | GESTOR | `{atividade: [{tipo, em, texto, por, ocorrenciaId, paciente, bairro}], aberturas24h: [{hora, valor}] (24 itens), cobertura: [{bairro, abertas, criticas, pontos, semPonto}]}`. Referência: `js/lib/painel.js` |
 | GET | `/ocorrencias/indicadores` | GESTOR | `{abertas, criticas, semAtendimento, tempoMedioAtendimentoMin, pontosAtivos}` |
 | POST | `/ocorrencias/{id}/acionamentos` | GESTOR | `{pontoId}` → Ocorrência. Já acionado: 409 |
 | POST | `/ocorrencias/{id}/atendimentos` | GESTOR | `{acao, observacao}` → Ocorrência (201) |

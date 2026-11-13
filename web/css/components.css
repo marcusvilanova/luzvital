@@ -371,7 +371,7 @@ dl.facts dd { margin: 0; }
 .sw-1 { background: var(--chart-1); }
 .sw-2 { background: var(--chart-2); }
 .chart-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-03); }
-.chart-bars li { display: grid; grid-template-columns: minmax(6rem, 9rem) 1fr 3.5rem; gap: var(--space-04); align-items: center; font-size: var(--text-label); }
+.chart-bars li { display: grid; grid-template-columns: minmax(7rem, 12rem) 1fr 3.5rem; gap: var(--space-04); align-items: center; font-size: var(--text-label); }
 .chart-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chart-track { position: relative; height: 1rem; background: var(--chart-grid); }
 .chart-bar { position: absolute; inset: 0 auto 0 0; background: var(--chart-1); transition: width var(--duration-moderate) var(--ease-productive); }

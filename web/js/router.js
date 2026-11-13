@@ -9,6 +9,7 @@ import { sessao } from "./services/sessao.js";
 const ROTAS = [
   { padrao: "/login", tela: () => import("./screens/acesso/login.js"), publica: true },
   { padrao: "/cadastro", tela: () => import("./screens/acesso/cadastro.js"), publica: true },
+  { padrao: "/inicio", tela: () => import("./screens/cuidador/inicio.js"), papel: "CUIDADOR" },
   { padrao: "/pacientes", tela: () => import("./screens/cuidador/pacientes.js"), papel: "CUIDADOR" },
   { padrao: "/pacientes/novo", tela: () => import("./screens/cuidador/paciente-form.js"), papel: "CUIDADOR" },
   { padrao: "/pacientes/:id", tela: () => import("./screens/cuidador/paciente.js"), papel: "CUIDADOR" },
@@ -18,6 +19,7 @@ const ROTAS = [
   { padrao: "/aparelhos/:id/editar", tela: () => import("./screens/cuidador/aparelho-form.js"), papel: "CUIDADOR" },
   { padrao: "/ocorrencias/:id", tela: () => import("./screens/cuidador/ocorrencia.js"), papel: "CUIDADOR" },
   { padrao: "/pontos", tela: () => import("./screens/cuidador/pontos.js"), papel: "CUIDADOR" },
+  { padrao: "/gestor", tela: () => import("./screens/gestor/inicio.js"), papel: "GESTOR" },
   { padrao: "/gestor/fila", tela: () => import("./screens/gestor/fila.js"), papel: "GESTOR" },
   { padrao: "/gestor/ocorrencias/:id", tela: () => import("./screens/gestor/ocorrencia.js"), papel: "GESTOR" },
   { padrao: "/gestor/impacto", tela: () => import("./screens/gestor/impacto.js"), papel: "GESTOR" },
@@ -27,7 +29,7 @@ const ROTAS = [
   { padrao: "/sobre", tela: () => import("./screens/sobre.js") },
 ];
 
-const inicioDoPapel = (papel) => (papel === "GESTOR" ? "/gestor/fila" : "/pacientes");
+const inicioDoPapel = (papel) => (papel === "GESTOR" ? "/gestor" : "/inicio");
 
 function casar(caminho) {
   const partes = caminho.split("/").filter(Boolean);

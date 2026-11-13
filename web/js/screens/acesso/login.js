@@ -40,7 +40,7 @@ export default {
       try {
         const resultado = await api.auth.login(dados.email, dados.senha);
         sessao.salvar(resultado);
-        navegar(resultado.usuario.papel === "GESTOR" ? "/gestor/fila" : "/pacientes");
+        navegar(resultado.usuario.papel === "GESTOR" ? "/gestor" : "/inicio");
       } catch (erro) {
         mount($("[data-mensagem]", main), aviso("error", mensagemDeErro(erro)));
         botao.disabled = false;

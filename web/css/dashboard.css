@@ -1,0 +1,251 @@
+/* Dashboards iniciais (gestor e cuidador).
+   Estrutura: faixa de abertura escura com o estado do momento + grade bento de 12 colunas.
+   Hierarquia: o que pede ação (urgentes, ocorrência aberta) vem antes de atalhos, gráficos e contexto. */
+
+/* ---------- Faixa de abertura ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: var(--space-07);
+  padding: var(--space-07) var(--space-06);
+  background: var(--hero-bg);
+  color: var(--gray-10);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-07);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  mask-image: linear-gradient(to left, #000 20%, transparent 85%);
+  pointer-events: none;
+}
+.hero > * { position: relative; min-width: 0; }
+.hero-alerta { box-shadow: inset 0 6px 0 var(--support-warning); }
+
+.hero-topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-04); }
+.hero-data { font-family: var(--font-mono); font-size: var(--text-label); color: var(--gray-30); }
+.hero-saudacao { font-size: var(--text-h3); font-weight: 300; line-height: 1.15; text-wrap: balance; }
+.hero-saudacao strong { font-weight: 600; }
+
+.hero-corpo { display: grid; gap: var(--space-07); align-items: end; }
+@media (min-width: 60rem) { .hero-corpo { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+
+.hero-numero { display: flex; align-items: baseline; gap: var(--space-05); flex-wrap: wrap; }
+.hero-numero .valor {
+  font-size: clamp(4rem, 2.5rem + 6vw, 7.5rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.hero-numero .valor.mono { font-family: var(--font-mono); letter-spacing: -0.04em; }
+.hero-numero .rotulo { font-size: var(--text-h4); font-weight: 300; max-width: 16ch; color: var(--gray-20); text-wrap: balance; }
+.hero-contexto { margin-top: var(--space-04); color: var(--gray-30); font-size: var(--text-body-sm); max-width: 52ch; }
+
+.hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #393939; }
+.hero-stats > div { padding: var(--space-05) var(--space-04) 0 0; }
+.hero-stats > div + div { border-left: 1px solid #393939; padding-left: var(--space-04); }
+.hero-stats .v { display: block; font-size: clamp(1.25rem, 0.9rem + 1.6vw, 1.75rem); font-weight: 300; font-variant-numeric: tabular-nums; line-height: 1.1; white-space: nowrap; }
+.hero-stats .r { display: block; font-size: 0.75rem; color: var(--gray-30); margin-top: var(--space-02); }
+.hero-stats .v.alerta { color: var(--support-warning); }
+
+.hero-acoes { display: flex; flex-wrap: wrap; gap: 1px; }
+.hero .btn-tertiary { color: var(--gray-10); border-color: var(--gray-10); }
+.hero .btn-tertiary:hover { background: var(--gray-10); color: var(--gray-100); }
+.hero .btn-ghost { color: var(--blue-40); }
+.hero .btn-ghost:hover { background: #262626; }
+.hero .meter span { background: #393939; }
+
+/* Pílula de estado: cor semântica separada do azul de ação */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-03);
+  padding: var(--space-02) var(--space-04) var(--space-02) var(--space-03);
+  border-radius: 1rem;
+  font-size: var(--text-label);
+  font-weight: 600;
+  background: #a7f0ba;
+  color: #0e6027;
+}
+.status-pill::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: currentColor; }
+.status-pill.alerta { background: var(--support-warning); color: var(--gray-100); }
+.status-pill.alerta::before { animation: piscar 1.6s ease-in-out infinite; }
+@keyframes piscar { 50% { opacity: 0.25; } }
+
+/* ---------- Grade bento ---------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+}
+.bento + .bento { margin-top: var(--space-07); }
+.bento > * { grid-column: span 12; min-width: 0; background: var(--background); }
+@media (min-width: 42rem) {
+  .bento > .c-3, .bento > .c-4, .bento > .c-6 { grid-column: span 6; }
+}
+@media (min-width: 66rem) {
+  .bento > .c-3 { grid-column: span 3; }
+  .bento > .c-4 { grid-column: span 4; }
+  .bento > .c-5 { grid-column: span 5; }
+  .bento > .c-6 { grid-column: span 6; }
+  .bento > .c-7 { grid-column: span 7; }
+  .bento > .c-8 { grid-column: span 8; }
+}
+
+.b-tile { display: flex; flex-direction: column; gap: var(--space-05); padding: var(--space-06); }
+.b-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-04); }
+.b-head h2 { font-size: var(--text-h4); font-weight: 600; }
+.b-head .eyebrow { margin-bottom: var(--space-02); }
+.b-head a { flex: none; font-size: var(--text-label); display: inline-flex; align-items: center; gap: var(--space-02); text-decoration: none; }
+.b-head a:hover { text-decoration: underline; }
+.b-head a .icon { width: 1rem; height: 1rem; }
+.b-rodape { margin-top: auto; font-size: var(--text-label); color: var(--text-secondary); }
+
+.secao-titulo { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-04); margin: var(--space-09) 0 var(--space-04); }
+.secao-titulo h2 { font-size: var(--text-h4); font-weight: 600; }
+.secao-titulo p { font-size: var(--text-label); color: var(--text-secondary); }
+
+/* ---------- Cartões de atalho para as outras seções ---------- */
+.atalho {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-03);
+  min-height: 11rem;
+  padding: var(--space-06);
+  color: inherit;
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-productive), box-shadow var(--duration-fast) var(--ease-productive);
+}
+.atalho:hover { background: var(--layer-01); box-shadow: inset 0 -3px 0 var(--interactive); }
+.atalho:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.atalho > .icon:first-child { width: 2rem; height: 2rem; fill: var(--chart-1); margin-bottom: var(--space-03); }
+.atalho h3 { font-size: var(--text-h4); font-weight: 400; }
+.atalho p { font-size: var(--text-label); color: var(--text-secondary); max-width: 32ch; }
+.atalho .atalho-numero { margin-top: auto; font-size: var(--text-h3); font-weight: 300; font-variant-numeric: tabular-nums; }
+.atalho .atalho-numero small { font-size: var(--text-label); color: var(--text-secondary); margin-left: var(--space-02); }
+.atalho .seta { position: absolute; right: var(--space-06); bottom: var(--space-06); width: 1.25rem; height: 1.25rem; fill: var(--interactive); transition: transform var(--duration-fast) var(--ease-productive); }
+.atalho:hover .seta { transform: translateX(4px); }
+:root[data-theme="dark"] .atalho .seta { fill: var(--blue-40); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .atalho .seta { fill: var(--blue-40); } }
+
+/* ---------- Lista das ocorrências mais urgentes ---------- */
+.urgentes { list-style: none; margin: 0; padding: 0; }
+.urgentes li {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) minmax(5rem, 9rem) auto;
+  gap: var(--space-04);
+  align-items: center;
+  padding: var(--space-04) 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.urgentes li:first-child { border-top: 0; }
+.urgentes .pos { font-family: var(--font-mono); font-size: var(--text-label); color: var(--text-secondary); }
+.urgentes .quem a { font-weight: 600; text-decoration: none; color: var(--text-primary); }
+.urgentes .quem a:hover { color: var(--link); text-decoration: underline; }
+.urgentes .quem span { display: block; font-size: 0.8125rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.urgentes .critico { box-shadow: inset 3px 0 0 var(--support-warning); padding-left: var(--space-03); margin-left: calc(-1 * var(--space-03)); }
+@media (max-width: 30rem) {
+  .urgentes li { grid-template-columns: 1.75rem minmax(0, 1fr) auto; }
+  .urgentes li .meter { display: none; }
+}
+
+/* ---------- Aberturas por hora (24 barras) ---------- */
+.horas-grafico { flex: 1; display: flex; flex-direction: column; min-height: 10rem; }
+.horas { flex: 1; display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 2px; align-items: end; min-height: 8rem;
+  background-image: linear-gradient(to top, var(--chart-grid) 1px, transparent 1px); background-size: 100% 33.33%; }
+.horas span { display: block; background: var(--chart-1); min-height: 2px; transition: height var(--duration-moderate) var(--ease-productive); }
+.horas span.zero { background: var(--chart-grid); }
+.horas span.agora { background: var(--chart-2); }
+.horas-eixo { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-secondary); padding-top: var(--space-02); border-top: 1px solid var(--border-strong); }
+.numero-destaque { display: flex; align-items: baseline; gap: var(--space-03); }
+.numero-destaque strong { font-size: var(--text-h2); font-weight: 300; line-height: 1; font-variant-numeric: tabular-nums; }
+.numero-destaque span { font-size: var(--text-label); color: var(--text-secondary); }
+.numero-destaque strong { white-space: nowrap; }
+.numero-destaque.vertical { flex-direction: column; align-items: center; gap: var(--space-02); text-align: center; }
+
+/* ---------- Atividade recente ---------- */
+.feed { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-04); }
+.feed li { display: grid; grid-template-columns: 0.625rem minmax(0, 1fr) auto; gap: var(--space-04); align-items: start; font-size: var(--text-label); }
+.feed li::before { content: ""; width: 0.625rem; height: 0.625rem; margin-top: 0.35rem; background: var(--chart-1); }
+.feed li.ABERTURA::before { background: var(--support-warning); }
+.feed li.ATENDIMENTO::before { background: var(--support-success); }
+.feed li.ENCERRAMENTO::before { background: var(--border-strong); }
+.feed li.PONTO::before { background: var(--chart-2); }
+.feed .quem { font-weight: 600; }
+.feed .oque { display: block; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.feed time { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); }
+.feed a { color: inherit; text-decoration: none; }
+.feed a:hover .quem { color: var(--link); text-decoration: underline; }
+
+/* ---------- Cobertura por bairro ---------- */
+.cobertura td:first-child { font-weight: 600; }
+.cobertura tr.vazio td { background: color-mix(in srgb, var(--support-warning) 14%, var(--layer-01)); }
+
+/* ---------- Cartão de prontidão do paciente (cuidador) ---------- */
+.paciente-card { gap: var(--space-06); }
+.paciente-topo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-05); align-items: center; }
+.paciente-topo h3 { font-size: var(--text-h3); font-weight: 300; line-height: 1.15; }
+.paciente-topo h3 a { color: inherit; text-decoration: none; }
+.paciente-topo h3 a:hover { color: var(--link); }
+.paciente-topo p { font-size: var(--text-label); color: var(--text-secondary); }
+.paciente-topo .chart-ring svg { width: 5.5rem; height: 5.5rem; }
+.paciente-topo .chart-ring .chart-title { display: none; }
+.critico-box { display: grid; gap: var(--space-03); padding: var(--space-05); background: var(--layer-01); }
+.critico-box .linha { display: flex; justify-content: space-between; gap: var(--space-04); align-items: baseline; flex-wrap: wrap; }
+.critico-box .tempo { font-family: var(--font-mono); font-size: var(--text-h3); font-weight: 300; }
+.critico-box small { font-size: var(--text-label); color: var(--text-secondary); }
+
+.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-03); }
+.checklist li { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr) auto; gap: var(--space-04); align-items: center; font-size: var(--text-body-sm); }
+.checklist .icon { fill: var(--support-success); }
+.checklist li.pendente .icon { fill: #8e6a00; }
+:root[data-theme="dark"] .checklist li.pendente .icon { fill: var(--support-warning); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .checklist li.pendente .icon { fill: var(--support-warning); } }
+.checklist li.pendente span { font-weight: 600; }
+.checklist a { font-size: var(--text-label); white-space: nowrap; }
+
+.btn-emergency.compacto { min-height: 4.5rem; font-size: var(--text-h4); padding: var(--space-04); }
+.btn-emergency.compacto small { font-size: var(--text-label); }
+
+/* ---------- Passos e contatos ---------- */
+.passos { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--border-subtle); }
+@media (min-width: 42rem) { .passos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.passos li { background: var(--background); padding: var(--space-05) var(--space-05) var(--space-06) 0; display: grid; gap: var(--space-03); align-content: start; }
+@media (min-width: 42rem) { .passos li + li { padding-left: var(--space-05); } }
+.passos .n { font-family: var(--font-mono); font-size: var(--text-h3); font-weight: 300; color: var(--chart-1); line-height: 1; }
+.passos strong { font-weight: 600; }
+.passos p { font-size: var(--text-label); color: var(--text-secondary); }
+
+.contatos { list-style: none; margin: 0; padding: 0; display: grid; }
+.contatos li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--space-04); align-items: center; padding: var(--space-04) 0; border-top: 1px solid var(--border-subtle); }
+.contatos li:first-child { border-top: 0; }
+.contatos .num { font-family: var(--font-mono); font-size: var(--text-h3); font-weight: 300; color: var(--text-primary); text-decoration: none; user-select: all; }
+.contatos .num:hover { color: var(--link); }
+.contatos strong { display: block; font-size: var(--text-body-sm); }
+.contatos span { font-size: 0.8125rem; color: var(--text-secondary); }
+
+.lembrete { display: grid; gap: var(--space-05); }
+@media (min-width: 52rem) { .lembrete { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lembrete > div { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-04); align-items: start; font-size: var(--text-body-sm); }
+.lembrete .icon { width: 1.5rem; height: 1.5rem; fill: var(--chart-1); }
+.lembrete strong { display: block; margin-bottom: var(--space-02); }
+.lembrete p { color: var(--text-secondary); font-size: var(--text-label); }
+
+/* Entrada suave dos blocos (só opacidade e transform; respeita prefers-reduced-motion via base.css) */
+@keyframes surgir { from { opacity: 0; transform: translateY(8px); } }
+.hero, .bento > * { animation: surgir var(--duration-moderate) var(--ease-entrance) both; }
+.bento > *:nth-child(2) { animation-delay: 40ms; }
+.bento > *:nth-child(3) { animation-delay: 80ms; }
+.bento > *:nth-child(4) { animation-delay: 120ms; }
+.bento > *:nth-child(n + 5) { animation-delay: 160ms; }
+[data-carregado] .hero, [data-carregado] .bento > * { animation: none; }

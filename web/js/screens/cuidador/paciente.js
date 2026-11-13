@@ -1,11 +1,11 @@
+import { abrirOcorrencia, TEXTO_PENDENTE } from "../../components/estou-sem-luz.js";
 import { icone } from "../../components/icones.js";
-import { toast } from "../../components/toast.js";
 import { aviso, avisoLegal, cabecalho, carregando, vazio } from "../../components/ui.js";
 import { $, html, mount } from "../../lib/dom.js";
 import { cep, dataHora, duracao, telefone, watts } from "../../lib/formato.js";
 import { aparelhoCritico, FONTES_RESERVA, RESULTADOS, TIPOS_APARELHO } from "../../lib/regras.js";
 import { api } from "../../services/api.js";
-import { ApiError, mensagemDeErro, SemConexao } from "../../services/erros.js";
+import { mensagemDeErro } from "../../services/erros.js";
 import { filaOffline } from "../../services/fila-offline.js";
 
 function linhaAparelho(e, critico) {
@@ -30,33 +30,8 @@ function blocoEmergencia(paciente) {
   }
   const pendente = filaOffline.pendenteDoPaciente(paciente.id);
   return html`<button class="btn-emergency" type="button" data-sem-luz>Estou sem luz
-      <small>${pendente ? "Pedido guardado: será enviado quando o sinal voltar" : "Um toque abre a ocorrência e começa a contagem"}</small>
+      <small>${pendente ? TEXTO_PENDENTE : "Um toque abre a ocorrência e começa a contagem"}</small>
     </button>`;
-}
-
-async function abrirOcorrencia(paciente, botao, navegar) {
-  botao.disabled = true; // trava o duplo toque; a Idempotency-Key cobre o reenvio
-  const chave = filaOffline.chavePara(paciente.id);
-  try {
-    const ocorrencia = await api.ocorrencias.abrir(paciente.id, chave);
-    filaOffline.remover(paciente.id);
-    toast("Ocorrência aberta. A equipe já vê sua contagem.", "success");
-    navegar(`/ocorrencias/${ocorrencia.id}`);
-  } catch (erro) {
-    if (erro instanceof SemConexao) {
-      filaOffline.guardar(paciente.id, chave);
-      toast("Sem sinal. Seu pedido será enviado assim que a conexão voltar.", "info");
-      botao.querySelector("small").textContent = "Pedido guardado: será enviado quando o sinal voltar";
-      botao.disabled = false;
-      return;
-    }
-    if (erro instanceof ApiError && erro.status === 409 && erro.ocorrenciaId) {
-      navegar(`/ocorrencias/${erro.ocorrenciaId}`);
-      return;
-    }
-    toast(mensagemDeErro(erro), "error");
-    botao.disabled = false;
-  }
 }
 
 function historico(ocorrencias) {
@@ -122,6 +97,6 @@ export default {
         </aside>
       </div>`);
 
-    $("[data-sem-luz]", main)?.addEventListener("click", (e) => abrirOcorrencia(paciente, e.currentTarget, navegar));
+    $("[data-sem-luz]", main)?.addEventListener("click", (e) => abrirOcorrencia(paciente.id, e.currentTarget, navegar));
   },
 };

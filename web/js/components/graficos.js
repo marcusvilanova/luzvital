@@ -50,3 +50,16 @@ export function anel(percentual, rotulo) {
     <figcaption class="chart-title">${rotulo}</figcaption>
   </figure>`;
 }
+
+/** 24 barras (uma por hora) com eixo de -24 h até agora; a hora atual em outra cor. */
+export function barrasPorHora(horas) {
+  const maximo = Math.max(1, ...horas.map((h) => h.valor));
+  const resumo = horas.map((h) => h.valor).join(", ");
+  return html`<div class="horas-grafico">
+    <div class="horas" role="img" aria-label="Aberturas por hora nas últimas 24 horas: ${resumo}">
+      ${horas.map((h, i) => html`<span class="${h.valor === 0 ? "zero" : ""} ${i === horas.length - 1 ? "agora" : ""}"
+        style="height:${h.valor ? Math.max(4, Math.round((100 * h.valor) / maximo)) : 2}%" title="${h.valor} às ${new Date(h.hora).getHours()}h"></span>`)}
+    </div>
+    <div class="horas-eixo" aria-hidden="true"><span>-24 h</span><span>-18 h</span><span>-12 h</span><span>-6 h</span><span>agora</span></div>
+  </div>`;
+}
