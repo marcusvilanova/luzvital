@@ -1,0 +1,5 @@
+*.py
+tests/
+gerar-icones.py
+gerar-sw.py
+servidor-dev.py
