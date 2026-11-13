@@ -200,7 +200,7 @@ a.tile:hover .tile-arrow { transform: translateX(4px); }
 .notice-dark svg { fill: var(--blue-40); }
 
 /* ---------- Tabela de dados ---------- */
-.table-wrap { overflow-x: auto; border: 1px solid var(--border-subtle); }
+.table-wrap { position: relative; overflow-x: auto; border: 1px solid var(--border-subtle); }
 .data-table { width: 100%; border-collapse: collapse; font-size: var(--text-body-sm); }
 .data-table th {
   padding: var(--space-04) var(--space-05);
@@ -411,4 +411,5 @@ dl.facts dd { margin: 0; }
 .row-new td { animation: chegou 2.4s var(--ease-productive); }
 
 .fila-layout { display: grid; gap: var(--space-07); }
+.fila-layout > * { min-width: 0; }
 @media (min-width: 90rem) { .fila-layout { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; } .fila-layout .map { height: 34rem; } }

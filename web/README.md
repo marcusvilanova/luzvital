@@ -83,6 +83,21 @@ Os dados ficam no `localStorage` do navegador. **Sobre > Restaurar dados de demo
 - **Validações** com as mesmas mensagens dos critérios de aceite do Azure Boards.
 - **Segurança:** todo texto vindo da API é escapado (`html```` em `js/lib/dom.js`); nenhum `innerHTML` com dado cru.
 
+## Publicar na Vercel
+
+1. Na Vercel, **Add New > Project** e importe o repositório `luzvital`.
+2. Em **Root Directory**, escolha **`web`** (importante: na raiz está o serviço de IA em Python, que não vai para a Vercel).
+3. **Framework Preset:** *Other*. Os comandos já vêm do `web/vercel.json` (site estático, sem build). Clique em **Deploy**.
+
+O `vercel.json` aplica a política de segurança (CSP liberando só Google Fonts, Leaflet no unpkg e os blocos do
+OpenStreetMap), `nosniff`, `Referrer-Policy`, `Permissions-Policy` e bloqueio de iframe. O `index.html`, o
+`manifest` e o `sw.js` saem com `no-cache`, para cada deploy chegar na hora aos usuários do app instalado.
+O `.vercelignore` deixa de fora testes, documentação e scripts Python.
+
+`python servidor-dev.py` usa os mesmos cabeçalhos do `vercel.json`, então o que funciona localmente funciona publicado.
+Na Vercel o site abre em **modo demonstração**; para usar as APIs, siga a seção abaixo e libere a URL da Vercel no CORS
+das APIs (que precisam estar em HTTPS).
+
 ## Ligar ao backend
 
 1. Em `js/config.js`, troque `MODO` para `"api"` e ajuste `API_JAVA` e `API_DOTNET`.

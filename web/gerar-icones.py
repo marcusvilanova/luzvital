@@ -1,9 +1,9 @@
-"""Gera os ícones PNG do app (PWA) a partir do traço da logo. Uso: python gerar-icones.py (precisa de Pillow)."""
+"""Gera os ícones PNG do app (PWA) a partir do traço da logo (batimento cardíaco). Uso: python gerar-icones.py (precisa de Pillow)."""
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-PULSO = [(3, 18), (10, 18), (16, 5), (14, 16), (19.5, 16), (16.5, 28), (21, 18), (29, 18)]
+PULSO = [(2, 18), (6.5, 18), (8, 15.5), (9.5, 18), (11.5, 18), (12.5, 21), (15, 4), (17.5, 27), (19, 18), (21, 18), (23.5, 13.5), (26, 18), (30, 18)]
 AZUL, BRANCO = "#0f62fe", "#ffffff"
 ESCALA = 4  # desenha maior e reduz, para bordas suaves
 PASTA = Path(__file__).parent / "icones"
@@ -15,7 +15,7 @@ def desenhar(tamanho: int, margem: float) -> Image.Image:
     traco = ImageDraw.Draw(img)
     util = grande * (1 - 2 * margem)
     pontos = [(grande * margem + x / 32 * util, grande * margem + y / 32 * util) for x, y in PULSO]
-    traco.line(pontos, fill=BRANCO, width=round(2.6 / 32 * util), joint="curve")
+    traco.line(pontos, fill=BRANCO, width=round(2.2 / 32 * util), joint="curve")
     return img.resize((tamanho, tamanho), Image.LANCZOS)
 
 

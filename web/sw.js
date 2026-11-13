@@ -1,7 +1,7 @@
 // Service worker do Luz Vital: deixa o app instalável e usável sem sinal.
 // Arquivos do app: rede primeiro (sempre a versão nova quando há internet), cache quando cai o sinal.
 // Fontes e biblioteca do mapa: cache primeiro. Chamadas às APIs nunca são guardadas aqui.
-const VERSAO = "luz-vital-534b9afe99";
+const VERSAO = "luz-vital-bc3955a00e";
 const ARQUIVOS = [
   "./",
   "./index.html",
