@@ -1,0 +1,34 @@
+arquivo,condicao,legivel,fabricante,modelo,potencia_w
+sint_01_normal.jpg,normal,true,PHILIPS RESPIRONICS,EverFlo,320.0
+sint_01_borrada.jpg,borrada,true,PHILIPS RESPIRONICS,EverFlo,320.0
+sint_01_reflexo.jpg,reflexo,true,PHILIPS RESPIRONICS,EverFlo,320.0
+sint_01_parcial.jpg,parcial,true,PHILIPS RESPIRONICS,EverFlo,320.0
+sint_02_so_va.jpg,so_va,true,PHILIPS,Trilogy Evo,170.0
+sint_02_borrada.jpg,borrada,true,PHILIPS,Trilogy Evo,170.0
+sint_02_reflexo.jpg,reflexo,true,PHILIPS,Trilogy Evo,170.0
+sint_02_parcial.jpg,parcial,true,PHILIPS,Trilogy Evo,170.0
+sint_03_normal.jpg,normal,true,OXIVIDA,OX-5 Home,390.0
+sint_03_borrada.jpg,borrada,true,OXIVIDA,OX-5 Home,390.0
+sint_03_reflexo.jpg,reflexo,true,OXIVIDA,OX-5 Home,390.0
+sint_03_parcial.jpg,parcial,true,OXIVIDA,OX-5 Home,390.0
+sint_04_normal.jpg,normal,true,ASPIRAMED,AS-300,90.0
+sint_04_borrada.jpg,borrada,true,ASPIRAMED,AS-300,90.0
+sint_04_reflexo.jpg,reflexo,true,ASPIRAMED,AS-300,90.0
+sint_04_parcial.jpg,parcial,true,ASPIRAMED,AS-300,90.0
+sint_05_so_va.jpg,so_va,true,INFUSA,BI-20,30.0
+sint_05_borrada.jpg,borrada,true,INFUSA,BI-20,30.0
+sint_05_reflexo.jpg,reflexo,true,INFUSA,BI-20,30.0
+sint_05_parcial.jpg,parcial,true,INFUSA,BI-20,30.0
+sint_06_normal.jpg,normal,true,NEBULAR,NB Clean 2,150.0
+sint_06_borrada.jpg,borrada,true,NEBULAR,NB Clean 2,150.0
+sint_06_reflexo.jpg,reflexo,true,NEBULAR,NB Clean 2,150.0
+sint_06_parcial.jpg,parcial,true,NEBULAR,NB Clean 2,150.0
+sint_07_normal.jpg,normal,true,DIALIX,HD Casa 4,1500.0
+sint_07_borrada.jpg,borrada,true,DIALIX,HD Casa 4,1500.0
+sint_07_reflexo.jpg,reflexo,true,DIALIX,HD Casa 4,1500.0
+sint_07_parcial.jpg,parcial,true,DIALIX,HD Casa 4,1500.0
+sint_08_normal.jpg,normal,true,MOVIDA,CR-Power,440.0
+sint_08_borrada.jpg,borrada,true,MOVIDA,CR-Power,440.0
+sint_08_reflexo.jpg,reflexo,true,MOVIDA,CR-Power,440.0
+sint_08_parcial.jpg,parcial,true,MOVIDA,CR-Power,440.0
+sint_99_nao_etiqueta.jpg,nao_etiqueta,false,,,

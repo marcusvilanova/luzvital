@@ -1,0 +1,32 @@
+arquivo,condicao,legivel,fabricante,modelo,tensao_v,corrente_a,potencia_w,potencia_estimada,tempo_ms,acerto_potencia,acerto_modelo
+sint_01_borrada.jpg,borrada,True,PHILIPS RESPIRONICS,EverFlo,220.0,1.5,320.0,False,1888,True,True
+sint_01_reflexo.jpg,reflexo,True,PHILIPS RESPIRONICS,EverFlo,220.0,1.5,320.0,False,2282,True,True
+sint_01_parcial.jpg,parcial,True,PHILIP,EverFlo,220.0,,320.0,False,1470,True,True
+sint_02_so_va.jpg,so_va,True,PHILIPS,Trilogy Evo,100.0,1.7,170.0,True,1424,True,True
+sint_02_borrada.jpg,borrada,True,PHILIPS,Trilogy Evo,100.0,1.7,170.0,True,1479,True,True
+sint_02_reflexo.jpg,reflexo,True,PHILIPS,Trilogy Evo,100.0,1.7,170.0,True,2113,True,True
+sint_02_parcial.jpg,parcial,True,PHILIPS,Trilogy E,100.0,,,False,2373,False,False
+sint_03_normal.jpg,normal,True,OXIVIDA,OX-5 Home,127.0,3.1,390.0,False,2872,True,True
+sint_03_borrada.jpg,borrada,True,OXIVIDA,OX-5 Home,127.0,3.1,390.0,False,3099,True,True
+sint_03_reflexo.jpg,reflexo,True,OXIVIDA,OX-5 Home,127.0,3.1,390.0,False,3079,True,True
+sint_03_parcial.jpg,parcial,True,OXIVID,OX-5 Hon,127.0,,390.0,False,1961,True,False
+sint_04_normal.jpg,normal,True,ASPIRAMED,AS-300,220.0,0.5,90.0,False,3194,True,True
+sint_04_borrada.jpg,borrada,True,ASPIRAMED,AS-300,220.0,0.5,90.0,False,2313,True,True
+sint_04_reflexo.jpg,reflexo,True,ASPIRAMED,AS-300,220.0,0.5,90.0,False,4032,True,True
+sint_04_parcial.jpg,parcial,True,ASPIR,AS-300,220.0,,90.0,False,2459,True,True
+sint_05_so_va.jpg,so_va,True,INFUSA,BI-20,100.0,0.3,30.0,True,3413,True,True
+sint_05_borrada.jpg,borrada,True,INFUSA,BI-20,100.0,0.3,30.0,True,3364,True,True
+sint_05_reflexo.jpg,reflexo,True,INFUSA,BI-20,100.0,0.3,30.0,True,2397,True,True
+sint_05_parcial.jpg,parcial,True,INFUS,BI-20,100.0,,,False,3450,False,True
+sint_06_normal.jpg,normal,True,NEBULAR,NB Clean 2,127.0,1.2,150.0,False,4872,True,True
+sint_06_borrada.jpg,borrada,True,NEBULAR,NB Clean 2,127.0,1.2,150.0,False,4804,True,True
+sint_06_reflexo.jpg,reflexo,True,NEBULAR,NB Clean 2,127.0,1.2,150.0,False,5160,True,True
+sint_06_parcial.jpg,parcial,True,NEBU,NB Clear,127.0,,150.0,False,10227,True,False
+sint_07_normal.jpg,normal,True,DIALIX,HD Casa 4,220.0,6.8,1500.0,False,4632,True,True
+sint_07_borrada.jpg,borrada,True,DIALIX,HD Casa 4,220.0,6.8,1500.0,False,4491,True,True
+sint_07_reflexo.jpg,reflexo,True,DIALIX,HD Casa 4,220.0,6.8,1500.0,False,3840,True,True
+sint_07_parcial.jpg,parcial,True,DIALIX,HD Casa,220.0,,1500.0,False,2330,True,False
+sint_08_normal.jpg,normal,True,MOVIDA,CR-Power,220.0,2.0,440.0,False,4450,True,True
+sint_08_reflexo.jpg,reflexo,True,MOVIDA,CR-Power,220.0,2.0,440.0,False,5145,True,True
+sint_08_parcial.jpg,parcial,True,MOVID,CR-Power,220.0,2.0,440.0,False,7451,True,True
+sint_99_nao_etiqueta.jpg,nao_etiqueta,False,,,,,,False,7147,,

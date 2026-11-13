@@ -1,0 +1,15 @@
+Global Solution 2026/2 - CitizenTech
+Disciplina: Disruptive Architectures: IoT, IoB & Generative IA
+Turma: 2TDS
+Grupo: Mind-Dev
+Projeto: Luz Vital
+
+Integrantes:
+RM 563192 - Hebert Lopes do Santos
+RM 562380 - Nicolas Monteiro Ramiro
+RM 558771 - Marcus Vinícius Vila Nova da Silva
+RM 563489 - Bruno Ferreira
+RM 566293 - Gabriel Robertoni Padilha
+
+Repositório no GitHub:
+https://github.com/marcusvilanova/luzvital

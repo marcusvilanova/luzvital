@@ -1,0 +1,75 @@
+{
+  "resumo": "Plano de emergência para falta de energia no Capão Redondo para paciente em uso de concentrador de oxigênio sem bateria e ventilador mecânico com bateria interna. O concentrador para imediatamente, exigindo troca rápida para o cilindro reserva.",
+  "etapas": [
+    {
+      "faixa": "Imediatamente",
+      "acoes": [
+        "Conecte o paciente imediatamente ao cilindro de oxigênio reserva.",
+        "Verifique a carga da bateria interna do ventilador mecânico Trilogy Evo.",
+        "Abra o aplicativo da distribuidora de energia e informe falta de luz com prioridade de suporte à vida."
+      ]
+    },
+    {
+      "faixa": "15 a 60 minutos",
+      "acoes": [
+        "Monitore o nível do manômetro do cilindro de oxigênio de reserva.",
+        "Separe documentos pessoais, receitas e relatórios médicos do paciente.",
+        "Verifique a previsão de retorno da energia nos canais da distribuidora."
+      ]
+    },
+    {
+      "faixa": "1 a 4 horas",
+      "acoes": [
+        "Procure locais com energia na vizinhança ou serviços de pronto atendimento próximos no Capão Redondo.",
+        "Mantenha aparelhos celulares carregados apenas para emergências.",
+        "Avalie a necessidade de providenciar novo cilindro de oxigênio com o fornecedor."
+      ]
+    },
+    {
+      "faixa": "Acima de 4 horas ou cilindro em nível baixo",
+      "acoes": [
+        "Prepare a bolsa de transporte com cabos e conexões para deslocamento.",
+        "Ligue para o 192 e solicite remoção antes do esgotamento total do oxigênio reserva.",
+        "Mantenha a calma e garanta que o ventilador permaneça na bateria durante o transporte."
+      ]
+    }
+  ],
+  "quando_pedir_ajuda": [
+    "O cilindro de oxigênio reserva estiver com nível baixo e sem previsão de luz.",
+    "A bateria do ventilador mecânico atingir níveis críticos de segurança.",
+    "A distribuidora não der prazo viável para restabelecer o fornecimento elétrico."
+  ],
+  "sinais_alerta": [
+    "Lábios, unhas ou pontas dos dedos arroxeados ou azulados.",
+    "Dificuldade severa para respirar, cansaço excessivo ou respiração muito rápida.",
+    "Desmaio, sonolência profunda anormal ou perda de consciência.",
+    "Agitação intensa, confusão mental ou suor frio repentino."
+  ],
+  "minutos_criticos": 0,
+  "aparelho_critico": "Concentrador de oxigênio",
+  "contatos": [
+    {
+      "nome": "SAMU",
+      "numero": "192",
+      "quando": "Paciente com falta de ar, cor arroxeada ou desmaio"
+    },
+    {
+      "nome": "Bombeiros",
+      "numero": "193",
+      "quando": "Risco de incêndio, choque elétrico ou resgate"
+    },
+    {
+      "nome": "Defesa Civil",
+      "numero": "199",
+      "quando": "Apagão longo com necessidade de remoção ou abrigo"
+    },
+    {
+      "nome": "Distribuidora de energia",
+      "numero": "Telefone impresso na conta de luz",
+      "quando": "Logo após a queda, informando que há equipamento vital na casa"
+    }
+  ],
+  "aviso": "O Luz Vital não substitui o 192, o 193 nem o canal da distribuidora e não dá orientação clínica. Em caso de piora do paciente, ligue 192.",
+  "origem": "ia",
+  "acoes_removidas": 0
+}
