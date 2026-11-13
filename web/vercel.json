@@ -1,7 +1,4 @@
 {
-  "installCommand": "echo skip",
-  "buildCommand": "echo skip",
-  "outputDirectory": "web",
   "headers": [
     {
       "source": "/sw.js",
