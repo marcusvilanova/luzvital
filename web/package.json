@@ -1,0 +1,12 @@
+{
+  "name": "luz-vital-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Front-end do Luz Vital (HTML, CSS e JavaScript puros).",
+  "scripts": {
+    "start": "npx --yes serve@14.2.4 -l 5500 .",
+    "test": "node --test",
+    "sw": "python gerar-sw.py"
+  }
+}

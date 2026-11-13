@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--text-h2); font-weight: 300; }
+h2 { font-size: var(--text-h3); }
+h3 { font-size: var(--text-h4); font-weight: 600; }
+p { margin: 0; }
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.2em;
+}
+
+img { max-width: 100%; display: block; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+/* Títulos recebem foco por script a cada troca de tela (leitor de tela), sem contorno visual */
+[tabindex="-1"]:focus { outline: none; }
+
+/* Tamanho padrão dos ícones; componentes ajustam quando precisam */
+.icon { width: 1.25rem; height: 1.25rem; fill: currentColor; flex: none; }
+.tile-head > svg { fill: var(--interactive); transition: transform var(--duration-fast) var(--ease-productive); }
+a.tile:hover .tile-head > svg { transform: translateX(4px); }
+:root[data-theme="dark"] .tile-head > svg { fill: var(--blue-40); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tile-head > svg { fill: var(--blue-40); } }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.mono { font-family: var(--font-mono); }
+
+.muted { color: var(--text-secondary); }
+
+.eyebrow {
+  font-size: var(--text-label);
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-05);
+  top: -4rem;
+  z-index: 100;
+  padding: var(--space-04) var(--space-05);
+  background: var(--interactive);
+  color: var(--text-on-color);
+}
+
+.skip-link:focus { top: var(--space-03); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

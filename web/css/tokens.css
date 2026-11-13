@@ -1,0 +1,163 @@
+/* Tokens inspirados no Carbon (IBM Design Language): grid de 2x, cantos retos, IBM Plex.
+   Regra do projeto: o vermelho de alerta aparece só no botão de emergência e no erro de campo. */
+
+:root {
+  /* Paleta base */
+  --gray-10: #f4f4f4;
+  --gray-20: #e0e0e0;
+  --gray-30: #c6c6c6;
+  --gray-50: #8d8d8d;
+  --gray-60: #6f6f6f;
+  --gray-70: #525252;
+  --gray-80: #393939;
+  --gray-90: #262626;
+  --gray-100: #161616;
+  --blue-60: #0f62fe;
+  --blue-70: #0043ce;
+  --blue-80: #002d9c;
+  --blue-40: #78a9ff;
+  --red-60: #da1e28;
+  --red-70: #a2191f;
+  --red-80: #750e13;
+  --yellow-30: #f1c21b;
+  --green-50: #24a148;
+  --green-40: #42be65;
+
+  /* Tema claro (White) */
+  --background: #ffffff;
+  --layer-01: var(--gray-10);
+  --layer-02: #ffffff;
+  --layer-hover: #e8e8e8;
+  --layer-selected: var(--gray-20);
+  --field: var(--gray-10);
+  --border-subtle: var(--gray-20);
+  --border-strong: var(--gray-50);
+  --text-primary: var(--gray-100);
+  --text-secondary: var(--gray-70);
+  --text-placeholder: var(--gray-50);
+  --text-on-color: #ffffff;
+  --icon-primary: var(--gray-100);
+  --interactive: var(--blue-60);
+  --interactive-hover: var(--blue-70);
+  --interactive-active: var(--blue-80);
+  --link: var(--blue-60);
+  --focus: var(--blue-60);
+  --focus-inset: #ffffff;
+  --danger: var(--red-60);
+  --danger-hover: #b81921;
+  --danger-active: var(--red-80);
+  --support-error: var(--red-60);
+  --support-warning: var(--yellow-30);
+  --support-success: var(--green-50);
+  --support-info: var(--blue-70);
+  --overlay: rgba(22, 22, 22, 0.5);
+  --shell: var(--gray-100);
+  --shell-text: var(--gray-10);
+  --shell-hover: #2c2c2c;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --chart-1: var(--blue-60);
+  --chart-2: #009d9a;
+  --chart-grid: var(--gray-20);
+  --highlight: #d0e2ff;
+
+  /* Tipografia */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
+  --text-label: 0.875rem;     /* 14 */
+  --text-body: 1.125rem;      /* 18: fonte grande para cuidadores idosos */
+  --text-body-sm: 1rem;       /* 16 */
+  --text-h4: 1.25rem;         /* 20 */
+  --text-h3: 1.75rem;         /* 28 */
+  --text-h2: 2.25rem;         /* 36 */
+  --text-display: clamp(3rem, 2rem + 6vw, 5.25rem);
+
+  /* Espaçamento (escala 2x do Carbon) */
+  --space-01: 0.125rem;
+  --space-02: 0.25rem;
+  --space-03: 0.5rem;
+  --space-04: 0.75rem;
+  --space-05: 1rem;
+  --space-06: 1.5rem;
+  --space-07: 2rem;
+  --space-08: 2.5rem;
+  --space-09: 3rem;
+  --space-10: 4rem;
+  --space-11: 5rem;
+
+  /* Movimento (productive) */
+  --ease-productive: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --ease-entrance: cubic-bezier(0, 0, 0.38, 0.9);
+  --duration-fast: 110ms;
+  --duration-moderate: 240ms;
+
+  --header-height: 3rem;
+  --max-width: 82rem;
+
+  color-scheme: light;
+}
+
+/* Tema escuro (Gray 100) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: var(--gray-100);
+    --layer-01: var(--gray-90);
+    --layer-02: var(--gray-80);
+    --layer-hover: #333333;
+    --layer-selected: var(--gray-80);
+    --field: var(--gray-90);
+    --border-subtle: var(--gray-80);
+    --border-strong: var(--gray-60);
+    --text-primary: var(--gray-10);
+    --text-secondary: var(--gray-30);
+    --text-placeholder: var(--gray-60);
+    --icon-primary: var(--gray-10);
+    --link: var(--blue-40);
+    --focus: #ffffff;
+    --focus-inset: var(--gray-100);
+    --support-error: #ff8389;
+    --support-success: var(--green-40);
+    --support-info: var(--blue-40);
+    --overlay: rgba(0, 0, 0, 0.65);
+    --shell: #0b0b0b;
+    --chart-1: var(--blue-40);
+    --chart-2: #08bdba;
+    --chart-grid: var(--gray-80);
+    --highlight: #002d9c;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --background: var(--gray-100);
+  --layer-01: var(--gray-90);
+  --layer-02: var(--gray-80);
+  --layer-hover: #333333;
+  --layer-selected: var(--gray-80);
+  --field: var(--gray-90);
+  --border-subtle: var(--gray-80);
+  --border-strong: var(--gray-60);
+  --text-primary: var(--gray-10);
+  --text-secondary: var(--gray-30);
+  --text-placeholder: var(--gray-60);
+  --icon-primary: var(--gray-10);
+  --link: var(--blue-40);
+  --focus: #ffffff;
+  --focus-inset: var(--gray-100);
+  --support-error: #ff8389;
+  --support-success: var(--green-40);
+  --support-info: var(--blue-40);
+  --overlay: rgba(0, 0, 0, 0.65);
+  --shell: #0b0b0b;
+  --chart-1: var(--blue-40);
+  --chart-2: #08bdba;
+  --chart-grid: var(--gray-80);
+  --highlight: #002d9c;
+  color-scheme: dark;
+}
+
+/* Letra grande e alto contraste (botão "Aa" no cabeçalho), para cuidadores idosos */
+:root[data-letra="grande"] {
+  font-size: 118.75%;
+  --text-secondary: var(--text-primary);
+  --border-subtle: var(--border-strong);
+}
