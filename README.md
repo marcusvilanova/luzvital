@@ -24,8 +24,9 @@ Este repositório tem duas partes:
 
 O Luz Vital cadastra pessoas que dependem de aparelhos elétricos para viver (ventilador, concentrador
 de oxigênio, bomba de infusão, aspirador, diálise) e, quando a luz cai, ordena o socorro pelas horas
-de bateria que restam em cada casa. Em outubro de 2024, mais de 3 milhões de imóveis ficaram sem luz
-na Grande São Paulo; em dezembro de 2025, outro apagão durou dias.
+de bateria que restam em cada casa. Em dezembro de 2025, uma ventania deixou mais de 4 milhões de
+clientes sem luz na Grande São Paulo [1]. Após o temporal de outubro de 2024, um idoso que depende de
+respirador ficou mais de 50 horas sem energia, e a família precisou comprar um gerador [2].
 
 **Público beneficiado:** cuidadores familiares, muitas vezes idosos, que não sabem de cabeça a potência
 nem a autonomia do aparelho, e as equipes (Defesa Civil, atenção domiciliar, distribuidora) que
@@ -190,8 +191,9 @@ o `gemini-3.5-flash-lite`.
 
 ### Resultado com fotos reais
 
-> Preencher depois de coletar as fotos do grupo ([protocolo](docs/protocolo-fotos.md)) e rodar o
-> comando acima. Copiar a tabela de `avaliacao/resultados/relatorio.md` e comparar com a seção anterior.
+Ainda não medido. A coleta das fotos segue o [protocolo](docs/protocolo-fotos.md) e a avaliação usa o
+mesmo comando acima. Até lá, os números desta seção vêm de etiquetas sintéticas e tendem a ser mais
+otimistas do que o desempenho com fotos reais (reflexo, ângulo, etiqueta gasta).
 
 ### Exemplo de plano gerado pela IA
 
@@ -299,7 +301,21 @@ docs/           protocolo de coleta das fotos
 tests/          testes unitários e de API (pytest)
 ```
 
-## 9. Declaração de uso de IA
+## 9. Links e referências
+
+| Item | Link |
+|---|---|
+| Repositório | https://github.com/marcusvilanova/luzvital |
+| Vídeo de pitch | [inserir o link do YouTube] |
+| Site publicado | [inserir o link da Vercel] |
+
+1. AGÊNCIA BRASIL. Enel diz que apagão impactou mais de 4 milhões de clientes em SP. jan. 2026.
+   https://agenciabrasil.ebc.com.br/economia/noticia/2026-01/enel-diz-que-apagao-impactou-mais-de-4-milhoes-de-clientes-em-sp
+2. ISTOÉ. Após chuvas em SP, casa de idoso que respira por aparelhos fica mais de 50 horas sem energia
+   e família compra gerador. 14 out. 2024.
+   https://istoe.com.br/apos-chuvas-em-sp-casa-de-idoso-que-respira-por-aparelhos-fica-mais-de-50-horas-sem-energia-e-familia-compra-gerador/
+
+## 10. Declaração de uso de IA
 
 Parte do código e da documentação foi escrita com apoio do assistente Claude (Anthropic) e revisada
 pelo grupo. O funcionamento do serviço usa o Gemini (Google) como descrito acima.
