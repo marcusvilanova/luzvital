@@ -314,8 +314,3 @@ tests/          testes unitários e de API (pytest)
 2. ISTOÉ. Após chuvas em SP, casa de idoso que respira por aparelhos fica mais de 50 horas sem energia
    e família compra gerador. 14 out. 2024.
    https://istoe.com.br/apos-chuvas-em-sp-casa-de-idoso-que-respira-por-aparelhos-fica-mais-de-50-horas-sem-energia-e-familia-compra-gerador/
-
-## 10. Declaração de uso de IA
-
-Parte do código e da documentação foi escrita com apoio do assistente Claude (Anthropic) e revisada
-pelo grupo. O funcionamento do serviço usa o Gemini (Google) como descrito acima.
