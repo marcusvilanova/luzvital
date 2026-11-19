@@ -13,3 +13,10 @@ RM 566293 - Gabriel Robertoni Padilha
 
 Repositório no GitHub:
 https://github.com/marcusvilanova/luzvital
+
+App publicado (Vercel):
+https://luzvital.vercel.app/#/login
+Acesso de demonstração: cuidador.ana@teste.com / Luz2026ok (cuidador)
+                        gestor.defesa@teste.com / Gestor2026ok (gestor)
+
+Documentação: entrega/Luz-Vital-IoT-documentacao.pdf

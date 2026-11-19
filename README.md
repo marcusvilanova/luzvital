@@ -307,7 +307,15 @@ tests/          testes unitários e de API (pytest)
 |---|---|
 | Repositório | https://github.com/marcusvilanova/luzvital |
 | Vídeo de pitch | [inserir o link do YouTube] |
-| Site publicado | [inserir o link da Vercel] |
+| App publicado (Vercel) | https://luzvital.vercel.app/#/login |
+
+**Acesso de demonstração.** O app publicado roda em modo de demonstração: os dados ficam no próprio
+navegador, sem as APIs Java e .NET no ar. Para entrar, use uma das contas de teste:
+
+| Papel | E-mail | Senha |
+|---|---|---|
+| Cuidador | cuidador.ana@teste.com | Luz2026ok |
+| Gestor | gestor.defesa@teste.com | Gestor2026ok |
 
 1. AGÊNCIA BRASIL. Enel diz que apagão impactou mais de 4 milhões de clientes em SP. jan. 2026.
    https://agenciabrasil.ebc.com.br/economia/noticia/2026-01/enel-diz-que-apagao-impactou-mais-de-4-milhoes-de-clientes-em-sp
