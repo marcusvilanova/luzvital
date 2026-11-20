@@ -20,6 +20,20 @@ Este repositório tem duas partes:
 | Bruno Ferreira | 563489 |
 | Gabriel Robertoni Padilha | 566293 |
 
+| Link | Endereço |
+|---|---|
+| Repositório | https://github.com/marcusvilanova/luzvital |
+| Vídeo da disciplina (YouTube) | https://youtu.be/2UrumhhRxuY |
+| App publicado (Vercel) | https://luzvital.vercel.app/#/login |
+
+**Acesso de demonstração.** O app publicado roda em modo de demonstração: os dados ficam no próprio
+navegador, sem as APIs Java e .NET no ar. Para entrar, use uma das contas de teste:
+
+| Papel | E-mail | Senha |
+|---|---|---|
+| Cuidador | cuidador.ana@teste.com | Luz2026ok |
+| Gestor | gestor.defesa@teste.com | Gestor2026ok |
+
 ## 1. O problema e a funcionalidade de IA
 
 O Luz Vital cadastra pessoas que dependem de aparelhos elétricos para viver (ventilador, concentrador
@@ -301,21 +315,7 @@ docs/           protocolo de coleta das fotos
 tests/          testes unitários e de API (pytest)
 ```
 
-## 9. Links e referências
-
-| Item | Link |
-|---|---|
-| Repositório | https://github.com/marcusvilanova/luzvital |
-| Vídeo da disciplina (YouTube) | https://youtu.be/2UrumhhRxuY |
-| App publicado (Vercel) | https://luzvital.vercel.app/#/login |
-
-**Acesso de demonstração.** O app publicado roda em modo de demonstração: os dados ficam no próprio
-navegador, sem as APIs Java e .NET no ar. Para entrar, use uma das contas de teste:
-
-| Papel | E-mail | Senha |
-|---|---|---|
-| Cuidador | cuidador.ana@teste.com | Luz2026ok |
-| Gestor | gestor.defesa@teste.com | Gestor2026ok |
+## 9. Referências
 
 1. AGÊNCIA BRASIL. Enel diz que apagão impactou mais de 4 milhões de clientes em SP. jan. 2026.
    https://agenciabrasil.ebc.com.br/economia/noticia/2026-01/enel-diz-que-apagao-impactou-mais-de-4-milhoes-de-clientes-em-sp
