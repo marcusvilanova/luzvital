@@ -306,7 +306,7 @@ tests/          testes unitários e de API (pytest)
 | Item | Link |
 |---|---|
 | Repositório | https://github.com/marcusvilanova/luzvital |
-| Vídeo de pitch | [inserir o link do YouTube] |
+| Vídeo da disciplina (YouTube) | https://youtu.be/2UrumhhRxuY |
 | App publicado (Vercel) | https://luzvital.vercel.app/#/login |
 
 **Acesso de demonstração.** O app publicado roda em modo de demonstração: os dados ficam no próprio

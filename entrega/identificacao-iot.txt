@@ -14,6 +14,9 @@ RM 566293 - Gabriel Robertoni Padilha
 Repositório no GitHub:
 https://github.com/marcusvilanova/luzvital
 
+Vídeo da disciplina (YouTube):
+https://youtu.be/2UrumhhRxuY
+
 App publicado (Vercel):
 https://luzvital.vercel.app/#/login
 Acesso de demonstração: cuidador.ana@teste.com / Luz2026ok (cuidador)
